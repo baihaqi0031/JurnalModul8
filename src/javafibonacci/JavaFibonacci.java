@@ -3,28 +3,43 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javafibonacci;
-
-import java.util.Scanner;
+package javamodifiedsumoffibonacci;
 
 /**
  *
  * @author Praktikan
  */
-public class JavaFibonacci {
+public class JavaModifiedSumOfFibonacci {
 
-    public static void main(String[]args) {
-        Scanner show = new Scanner(System.in);
-        System.out.print("Inputkan Deret Fibonacci : ");
-        int n = show.nextInt();
-        long angka[] = new long[n];
-         
-        angka[0] = 1;
-        angka[1] = 1;
-         
-        for(int i = 2; i < n; i++) {
-            angka[i] = angka[i-1] + angka[i-2];
+    /**
+     * @param args the command line arguments
+     */
+static int SumFibo(int n)
+    {
+        if (n <= 0)
+           return 0;
+      
+        int fib[]=new int[n+1];
+        fib[0] = 0; fib[1] = 1;
+      
+        // Initialize result
+        int sum = fib[0] + fib[1];
+      
+        // Add remaining terms
+        for (int i=2; i<=n; i++)
+        {
+            fib[i] = fib[i-1]+fib[i-2];
+            sum += fib[i];
         }
-         
+      
+        return sum;
+    }
+      
+    // Driver program to test above function
+    public static void main(String args[])
+    {
+        int n = 4;
+        System.out.println("Input : "+n);
+        System.out.println("Output : "+ SumFibo(n));
     }
 }
